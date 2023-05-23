@@ -91,10 +91,10 @@ nlu:
     - stop the form
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+     - Você é um robô?
+     - Você é um humano?
+     - estou falando com um bot?
+     - estou falando com um humano?
 - intent: buy_fancy_pizza
   examples: |
     - i'd like to buy a fancy pizza
@@ -104,15 +104,16 @@ nlu:
     - buy a fancy pizza
 - intent: buy_pizza
   examples: |
-    - i'd like to buy a pizza
-    - i want a pizza
-    - can i buy a pizza
-    - I'm interested in a savory round flattened bread of Italian origin
-    - i want to buy a pizza
+     - eu gostaria de comprar uma pizza
+     - eu quero. Uma pizza
+     - posso comprar uma pizza
+     - Estou interessado em um saboroso pão achatado redondo de origem italiana
+     - eu quero comprar uma pizza
 - intent: inform
   examples: |
-    - i'd like a [large](pizza_size) pizza
-    - i want to order a [xl](pizza_size) [hawai](pizza_type) pizza
+    - eu quero uma pizza grande
+    - Eu gostaria de um [large](pizza_size) pizza
+    - eu quero pedir um [xl](pizza_size) [hawai](pizza_type) pizza
     - [medium](pizza_size) pizza
     - [xl](pizza_size)
     - [small](pizza_size)
@@ -122,11 +123,11 @@ nlu:
     - [hawaii](pizza_type) pizza
     - [smol](pizza_size)
     - [hawaii](pizza_type)
-    - i want a [large](pizza_size) pizza
+    - eu quero um [large](pizza_size) pizza
     - [mozzarella](pizza_type)
     - [hawai](pizza_type)
     - [veggie](pizza_type)
     - [fungi](pizza_type)
-    - i want a [large](pizza_size) pizza
+    - eu quero um [large](pizza_size) pizza
     - [vegggie](pizza_type)
     - [veggie](pizza_type)
