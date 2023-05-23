@@ -1,0 +1,128 @@
+--------------------------------------------------------
+https://grupovalter.com/inicial/
+
+CARROS APARTIR DE 600:https://www.vipleiloes.com.br/Veiculos/Home?utm_source=edu&utm_medium=edu&utm_campaign=edu
+
+YOUTUBE:PRIMEIRO LEILÃO de RAM ZERO KM do BRASIL com AVARIA DE TRANSPORTE *nao acreditei
+Tudo Leilão 
+
+https://www.superbid.net/?utm_source=influenciador&utm_medium=impulso&utm_campaign=sbmktplace_ma_intermediacao&utm_content=evento-mapfre-all-risk&utm_term=edu_tudo-leilao_12052023
+
+
+YOUTUBE:TUDO é VENDIDO NESSE LEILÃO *melhor que receita federal*
+Tudo Leilão
+
+
+
+www.palaciodosleiloes.com.br
+---------------------------------20-05-23--------------------------07:13-------
+---------CONFIGURAÇÃO PROJETO RASA CHAT BOT----------------------------------------------
+----------------------------------------------------------------
+
+>python3 --version
+
+>pip3 --version
+
+>pip3 install -U pip
+
+>python3 -m venv ./venv
+
+*DESATIVAR O AMBIENTE VIRTUAL
+>deactivate
+
+*PARA USAR UMA VERSÃO ESPECÍFICA DO PYTHON, EXCECUTAR O COMANDO FORA DO AMBIENTE VIRTUAL
+>py -3.9 -m venv venv
+
+DEPOIS DE EXECUTAR O COMANDO ACIMA EXCECUTAR:
+*CRIA UM AMBIENTE VIRTUAL
+>.\venv\Scripts\activate
+
+*VERIFICAR A VERSÃO PYTHON ATUAL
+>python --version
+
+>pip3 install rasa
+
+>rasa init
+
+ATUALIZAR O PIP
+>python.exe -m pip install --upgrade pip
+
+*INICIAR O SERVIDOR DE AÇÃO
+>rasa run actions
+
+
+*LISTAR AS VERSÕES DO PYTHON
+>py -0p
+
+
+*VERIFICAR A VERSÃO PYTHON ATUAL
+>python --version
+
+*INICIAR O INTERACTIVE
+>rasa interactive
+
+*INICIAR O SHELL
+>rasa shell
+
+======================================================================================================
+------------------------------------------------------------------------------------------------------
+*INSTALAR BIBLIOTECA RASA SDK
+
+Para instalar a biblioteca Rasa SDK em um projeto Rasa, você precisa adicionar a dependência ao 
+seu arquivo requirements.txt
+
+*CRIAR O ARQUIVO REQUIREMENTS.TXT
+Siga estas etapas para criar o arquivo requirements.txt:
+
+Certifique-se de que o seu ambiente virtual esteja ativado.
+
+No terminal ou prompt de comando, navegue até o diretório raiz do seu projeto.
+
+Execute o seguinte comando para gerar a lista das bibliotecas instaladas:
+
+Exemplo:
+>pip freeze > requirements.txt
+
+Isso criará um arquivo chamado requirements.txt no diretório atual com todas as bibliotecas instaladas 
+e suas versões.
+Agora você deve ter o arquivo requirements.txt criado no diretório do seu projeto. Você pode então executar 
+o comando
+para instalar todas as bibliotecas listadas no arquivo. Certifique-se de estar no mesmo diretório 
+onde o arquivo requirements.txt está localizado ao executar o comando.
+
+>pip install -r requirements.txt 
+
+ATUALIZAR O PIP
+>python.exe -m pip install --upgrade pip
+
+START
+-------------
+
+TRAINAR O BOT
+>rasa train
+
+START SERVER
+>rasa run actions
+
+INICIAR O SHELL
+>rasa shell
+
+INTERAGIR
+>rasa interactive
+
+==================================================================================================================
+
+COMANDOS DEPOIS DE CLONAR ARQUIVO NO GIT HUB
+
+>python3 -m venv ./venv
+
+>py -3.9 -m venv venv
+
+>.\venv\Scripts\activate
+
+>pip freeze > requirements.txt
+
+>pip install -r requirements.txt
+
+ATUALIZANDO O PIP
+>python.exe -m pip install --upgrade pip

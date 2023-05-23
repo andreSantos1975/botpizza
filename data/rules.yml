@@ -1,0 +1,53 @@
+version: "3.1"
+
+rules:
+
+- rule: Diga adeus sempre que o usuário se despedir
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Diga 'eu sou um bot' sempre que o usuário desafiar
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Enviar formulário de pizza
+  condition:
+  - active_loop: simple_pizza_form
+  steps:
+  - action: simple_pizza_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_pizza_slots
+
+- rule: Interrupção no formulário de pizza
+  condition:
+  # Condition that form is active.
+  - active_loop: simple_pizza_form
+  steps:
+  # This unhappy path handles the case of an intent `bot_challenge`.
+  - intent: bot_challenge
+  - action: utter_iamabot
+  # Return to form after handling the `bot_challenge` intent
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+
+- rule: Ativar formulário de pizza chique
+  steps:
+  - intent: buy_fancy_pizza
+  - action: fancy_pizza_form
+  - active_loop: fancy_pizza_form
+
+- rule: Enviar formulário de pizza chique
+  condition:
+  - active_loop: fancy_pizza_form
+  steps:
+  - action: fancy_pizza_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_pizza_slots
