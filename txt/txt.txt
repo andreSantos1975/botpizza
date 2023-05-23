@@ -1,4 +1,3 @@
---------------------------------------------------------
 https://grupovalter.com/inicial/
 
 CARROS APARTIR DE 600:https://www.vipleiloes.com.br/Veiculos/Home?utm_source=edu&utm_medium=edu&utm_campaign=edu
@@ -120,8 +119,7 @@ COMANDOS DEPOIS DE CLONAR ARQUIVO NO GIT HUB
 
 >.\venv\Scripts\activate
 
->pip freeze > requirements.txt
-
+ESTE COMANDO DEVE SER EXECUTADO DENTRO DO AMBIENTE VIRTUAL
 >pip install -r requirements.txt
 
 ATUALIZANDO O PIP
