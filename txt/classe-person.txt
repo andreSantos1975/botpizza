@@ -1,0 +1,59 @@
+
+CLASSE PERSONALIZADA PARA PEDIDO DE PIZZA
+
+Para criar sua própria classe de ação personalizada para a ação action_buy_pizza e fazer um pedido de pizza usando uma API 
+externa, você pode seguir os seguintes passos:
+
+Crie um novo arquivo Python para a sua classe de ação, por exemplo, actions.py.
+
+Importe as bibliotecas necessárias para fazer a chamada à API externa. Dependendo da biblioteca e do tipo de API que você está 
+usando, pode ser necessário instalar pacotes adicionais.
+
+Defina uma classe para a ação ActionBuyPizza que herda da classe Action do Rasa SDK.
+
+Implemente o método name() para retornar o nome da ação, que neste caso é "action_buy_pizza".
+
+Implemente o método run() para executar a lógica da ação. Dentro deste método, você pode escrever o código para fazer a chamada 
+à API externa e fazer o pedido de pizza.
+
+Aqui está um exemplo básico de como o código poderia ser implementado:
+
+python
+Copy code
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import requests
+
+class ActionBuyPizza(Action):
+    def name(self) -> Text:
+        return "action_buy_pizza"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Obtenha os slots preenchidos pelo usuário
+        pizza_size = tracker.get_slot("pizza_size")
+        pizza_type = tracker.get_slot("pizza_type")
+
+        # Lógica para fazer a chamada à API externa e fazer o pedido de pizza
+        # Substitua as URLs e os parâmetros da API com os corretos para a API que você está usando
+        api_url = "https://example.com/pizza/order"
+        payload = {
+            "size": pizza_size,
+            "type": pizza_type
+        }
+        response = requests.post(api_url, json=payload)
+
+        # Verifique a resposta da API e envie uma mensagem de acordo
+        if response.status_code == 200:
+            dispatcher.utter_message("Pedido de pizza realizado com sucesso!")
+        else:
+            dispatcher.utter_message("Desculpe, ocorreu um erro ao fazer o pedido de pizza.")
+
+        return []
+Certifique-se de instalar o pacote rasa-sdk para executar as ações personalizadas. Você pode instalá-lo usando 
+o seguinte comando:
+
+Copy code
+pip install rasa-sdk
+Após escrever sua classe de ação personalizada, reinicie o servidor Rasa para que ele possa reconhecer e executar 
+a ação action_buy_pizza personalizada.

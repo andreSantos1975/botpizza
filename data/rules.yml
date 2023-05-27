@@ -2,17 +2,23 @@ version: "3.1"
 
 rules:
 
-- rule: Diga adeus sempre que o usuário se despedir
+- rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Diga 'eu sou um bot' sempre que o usuário desafiar
+- rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Enviar formulário de pizza
+- rule: Activate Pizza Form
+  steps:
+  - intent: buy_pizza
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+
+- rule: Submit Pizza Form
   condition:
   - active_loop: simple_pizza_form
   steps:
@@ -23,7 +29,7 @@ rules:
   - action: utter_submit
   - action: utter_pizza_slots
 
-- rule: Interrupção no formulário de pizza
+- rule: Interruption in Pizza Form
   condition:
   # Condition that form is active.
   - active_loop: simple_pizza_form
@@ -35,13 +41,13 @@ rules:
   - action: simple_pizza_form
   - active_loop: simple_pizza_form
 
-- rule: Ativar formulário de pizza chique
+- rule: Activate Fancy Pizza Form
   steps:
   - intent: buy_fancy_pizza
   - action: fancy_pizza_form
   - active_loop: fancy_pizza_form
 
-- rule: Enviar formulário de pizza chique
+- rule: Submit Fancy Pizza Form
   condition:
   - active_loop: fancy_pizza_form
   steps:

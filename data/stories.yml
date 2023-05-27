@@ -41,8 +41,6 @@ stories:
   - slot_was_set:
     - pizza_size: large
   - slot_was_set:
-    - pizza_size: large
-  - slot_was_set:
     - requested_slot: pizza_type
   - slot_was_set:
     - pizza_type: hawaiii
@@ -68,33 +66,6 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: interactive_story_2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: buy_fancy_pizza
-  - action: fancy_pizza_form
-  - active_loop: fancy_pizza_form
-  - slot_was_set:
-    - requested_slot: vegetarian
-  - slot_was_set:
-    - vegetarian: true
-  - slot_was_set:
-    - requested_slot: pizza_size
-  - slot_was_set:
-    - pizza_size: s
-  - slot_was_set:
-    - requested_slot: pizza_type
-  - slot_was_set:
-    - pizza_type: veggie
-  - slot_was_set:
-    - pizza_type: veggie
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_submit
-  - action: utter_pizza_slots
-
 - story: User interrupts the form and doesn't want to continue
   steps:
   - intent: greet
@@ -110,7 +81,7 @@ stories:
   - action: action_deactivate_loop
   - active_loop: null
 
-- story: interactive_story_3
+- story: interactive_story_2
   steps:
   - intent: greet
   - action: utter_greet
@@ -129,7 +100,7 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: interactive_story_4
+- story: interactive_story_1
   steps:
   - intent: greet
   - action: utter_greet
@@ -153,9 +124,3 @@ stories:
     - requested_slot: null
   - intent: goodbye
   - action: utter_goodbye
-
-- story: interactive_story_5
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: buy_pizza

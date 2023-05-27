@@ -1,0 +1,80 @@
+Pelo histórico da conversa que você compartilhou, parece que o bot não está detectando a entidade "pizza grande". Isso pode estar 
+ocorrendo devido a várias razões possíveis. Aqui estão algumas coisas que você pode verificar para solucionar o problema:
+
+Verifique se você possui exemplos de treinamento suficientes para a entidade "pizza_size" em seu arquivo de treinamento NLU. 
+Certifique-se de ter exemplos que incluam a variação "pizza grande" para que o modelo possa aprender a reconhecê-la corretamente.
+
+Verifique se o extrator de entidade em uso está configurado corretamente. Dependendo da sua configuração, você pode estar usando 
+o extrator "DIETClassifier" ou "CRFEntityExtractor". Verifique a documentação relevante para garantir que sua configuração esteja 
+correta.
+
+Verifique se a entidade "pizza_size" está sendo corretamente mapeada em seu arquivo de domínio. No arquivo domain.yml, você precisa 
+ter uma seção para mapear a entidade "pizza_size" para os valores correspondentes. Certifique-se de que "pizza grande" esteja mapeado 
+corretamente.
+
+Verifique se você está usando uma política de classificação adequada que pode lidar com a detecção correta de entidades. 
+A política "TEDPolicy" é geralmente recomendada para entidades, pois ela usa o modelo TED para detecção de intenções e entidades.
+
+Certifique-se de revisar esses pontos e fazer as alterações necessárias em seu projeto Rasa. Isso ajudará o bot a reconhecer 
+corretamente a entidade "pizza grande" durante a conversa.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+=======================================================================================================================================
+-------------------------------------------------------------------------------25-05-23-----------------------------05:33--------------
+-------------------------------------------------------------------------------------------------------------------------------------
+from typing import Text, List, Any, Dict
+
+from rasa_sdk import Tracker, FormValidationAction, Action
+from rasa_sdk.events import EventType
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
+
+ALLOWED_PIZZA_SIZES = ["small", "medium", "large", "extra-large", "extra large", "s", "m", "l", "xl"]
+ALLOWED_PIZZA_TYPES = ["mozzarella", "fungi", "veggie", "pepperoni", "hawaii"]
+
+class ValidateSimplePizzaForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_simple_pizza_form"
+
+    def validate_pizza_size(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `pizza_size` value."""
+
+        if slot_value.lower() not in ALLOWED_PIZZA_SIZES:
+            dispatcher.utter_message(text=f"We only accept pizza sizes: s/m/l/xl.")
+            return {"pizza_size": None}
+        dispatcher.utter_message(text=f"OK! You want to have a {slot_value} pizza.")
+        return {"pizza_size": slot_value}
+
+    def validate_pizza_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `pizza_type` value."""
+
+        if slot_value not in ALLOWED_PIZZA_TYPES:
+            dispatcher.utter_message(text=f"I don't recognize that pizza. We serve {'/'.join(ALLOWED_PIZZA_TYPES)}.")
+            return {"pizza_type": None}
+        dispatcher.utter_message(text=f"OK! You want to have a {slot_value} pizza.")
+        return {"pizza_type": slot_value}
+
+class StorePizzaSizeAction(Action):
+    def name(self) -> Text:
+        return "store_pizza_size"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        pizza_size = tracker.latest_message.get('entities')[0]['value']  # Obtém o valor da entidade "pizza_size"
+        return [SlotSet("pizza_size", pizza_size)]  # Armazena o valor no slot "pizza_size"

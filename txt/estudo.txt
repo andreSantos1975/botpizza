@@ -1,0 +1,108 @@
+
+-----------------------------------ARQUIVO DOMAIN.YML-------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------25-05-2023---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+
+O arquivo domain.yml é usado para definir o domínio do assistente virtual, especificando os intents, entities, slots, responses, 
+actions, forms e outras configurações relevantes. Aqui está a função de cada bloco no arquivo:
+
+intents: Este bloco define os intents (intenções) que o assistente virtual pode reconhecer. Cada intent representa uma intenção do 
+usuário expressa na conversa. No exemplo fornecido, os intents 
+são "buy_pizza", "greet", "inform", "bot_challenge" e "request_pizza_form".
+
+entities: Este bloco define as entities (entidades) que o assistente virtual pode extrair da conversa. As entities representam 
+informações específicas mencionadas pelo usuário. No exemplo, as entities são "pizza_size" e "pizza_type".
+
+slots: Este bloco define os slots (espaços) que são usados para armazenar informações relevantes durante a conversa. Os slots 
+são preenchidos à medida que o assistente interage com o usuário. 
+No exemplo, os slots são "pizza_size", "pizza_type" e "requested_slot". Cada slot tem um tipo (como "text") e pode ter mapeamentos 
+para entities específicas.
+
+responses: Este bloco define as respostas que o assistente pode emitir durante a conversa. As respostas são referenciadas pelos 
+seus nomes (como "utter_greet") e contêm uma lista de possíveis mensagens de texto que o assistente pode enviar em resposta a uma 
+ação ou input do usuário.
+
+actions: Este bloco lista as ações que o assistente pode executar durante uma conversa. As ações podem ser ações predefinidas do
+Rasa (como "utter_greet") ou ações personalizadas (como "action_buy_pizza"). As ações determinam o comportamento do assistente em 
+resposta aos eventos da conversa.
+
+forms: Este bloco define os formulários que o assistente pode usar para coletar informações do usuário de maneira estruturada. Um 
+formulário consiste em uma lista de slots que devem ser preenchidos. No exemplo, há um formulário chamado "simple_pizza_form" com 
+os slots "pizza_size" e "pizza_type" como slots obrigatórios.
+
+session_config: Este bloco define as configurações de sessão para o assistente. Ele especifica o tempo de expiração da sessão e 
+se os slots devem ser mantidos em uma nova sessão. No exemplo, a sessão expira após 60 segundos e os slots são mantidos em uma nova 
+sessão.
+
+Esses blocos combinados definem o domínio do assistente virtual, incluindo suas capacidades de reconhecimento de intents, extração de 
+entities, coleta de informações usando slots e respostas que ele pode emitir durante uma conversa.
+
+=============================================================================================================================
+SITE PARA FORMATAÇÃO DO ARQUIVOS yml
+Uma maneira de resolver esse problema é usar uma ferramenta de validação YAML, como o https://yamlchecker.com/, para 
+verificar a sintaxe do seu arquivo YAML e identificar qualquer erro de formatação.
+
+=============================================================================================================================
+-------------------------------FORMULÁRIO RASA--------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+-----utter_submi-------utter_pizza_slots------- utter_slots_values----------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+As ações utter_submit, utter_pizza_slots e utter_slots_values são exemplos de ações que podem ser definidas no Rasa para lidar 
+com interações específicas do usuário durante um diálogo.
+
+Aqui está a diferença entre essas ações:
+
+utter_submit: Essa ação é usada para enviar uma mensagem de confirmação ou conclusão quando um formulário é submetido com sucesso. 
+Geralmente, é usada para informar ao usuário que as informações do formulário foram recebidas e processadas corretamente. Por exemplo, 
+você pode usar essa ação para exibir uma mensagem como "Obrigado! Sua pizza está sendo preparada".
+
+utter_pizza_slots: Essa ação é usada para fornecer ao usuário informações sobre os slots (campos) preenchidos durante o processo de 
+coleta de informações do formulário. É comum usá-la após a submissão do formulário para apresentar um resumo dos detalhes fornecidos 
+pelo usuário. Por exemplo, você pode usar essa ação para exibir uma mensagem como "Vou preparar uma pizza de tamanho médio com cobertura 
+de pepperoni para você".
+
+utter_slots_values: Essa ação é usada para obter os valores atuais dos slots preenchidos durante o diálogo e exibi-los para o usuário. 
+É útil quando você deseja fornecer um resumo ou confirmação dos valores dos slots em qualquer ponto do diálogo, não apenas após a 
+submissão do formulário. Por exemplo, você pode usar essa ação para exibir uma mensagem como "Os detalhes da sua pizza atual são: 
+tamanho médio, cobertura de pepperoni".
+
+Em resumo, a ação utter_submit é usada para confirmar a submissão bem-sucedida do formulário, a ação utter_pizza_slots é usada para 
+fornecer um resumo dos detalhes do formulário e a ação utter_slots_values é usada para exibir os valores atuais dos slots durante o 
+diálogo.
+-------------------------------------------------------------------------------------------------------------------------------
+DEFINIR action:  utter_submit  NA REGRA 
+E NO DOMAIN DEINIR A response:
+                       utter_submi
+                         text: Vou mandar a pizza
+
+--------------------------------------------------------------------------------------------------------------------------------
+=================================================================================================================================
+-------------------------------------------------------------------------------------------------------------------------------
+PREFIXO utter_ask_
+
+ ações de fala são acionadas no domain.yml durante o fluxo da conversa para solicitar informações específicas dos usuários ou confirmar suas 
+escolhas. Elas apresentam uma pergunta ao usuário e esperam por uma resposta correspondente.
+No framework Rasa, quando um formulário é ativado, o primeiro slot requerido do formulário é solicitado ao usuário automaticamente. 
+Portanto, a primeira ação de fala após a ativação do formulário será uma pergunta relacionada ao primeiro slot necessário.
+
+No exemplo fornecido, o formulário "simple_pizza_form" possui dois slots requeridos: "pizza_size" e "pizza_type". Portanto, quando 
+o formulário é ativado, a ação de fala correspondente ao primeiro slot necessário será acionada. No caso desse código, a ação 
+de fala "utter_ask_pizza_size" será acionada primeiro para perguntar ao usuário qual tamanho de pizza ele gostaria.
+
+Assim que o usuário fornecer a resposta para o primeiro slot, o próximo slot necessário será solicitado automaticamente, e assim 
+por diante, até que todos os slots requeridos sejam preenchidos. Portanto, as ações de fala com o prefixo "utter_ask_" serão acionadas 
+sequencialmente durante o preenchimento do formulário.
+
+
+
+
+
+
+
+
+
+
+
+
+

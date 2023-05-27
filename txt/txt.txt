@@ -124,3 +124,5 @@ ESTE COMANDO DEVE SER EXECUTADO DENTRO DO AMBIENTE VIRTUAL
 
 ATUALIZANDO O PIP
 >python.exe -m pip install --upgrade pip
+
+
