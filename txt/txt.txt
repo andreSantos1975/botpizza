@@ -65,7 +65,7 @@ ATUALIZAR O PIP
 
 ======================================================================================================
 ------------------------------------------------------------------------------------------------------
-*INSTALAR BIBLIOTECA RASA SDK
+*INSTALAR BIBLIOTECA RASA SDK OBS: NECESSÁRIO ESTA NO AMBIENTE VIRTUAL
 
 Para instalar a biblioteca Rasa SDK em um projeto Rasa, você precisa adicionar a dependência ao 
 seu arquivo requirements.txt
