@@ -1,19 +1,42 @@
-https://grupovalter.com/inicial/
+==========================================================================================================================================
 
-CARROS APARTIR DE 600:https://www.vipleiloes.com.br/Veiculos/Home?utm_source=edu&utm_medium=edu&utm_campaign=edu
-
-YOUTUBE:PRIMEIRO LEILÃO de RAM ZERO KM do BRASIL com AVARIA DE TRANSPORTE *nao acreditei
-Tudo Leilão 
-
-https://www.superbid.net/?utm_source=influenciador&utm_medium=impulso&utm_campaign=sbmktplace_ma_intermediacao&utm_content=evento-mapfre-all-risk&utm_term=edu_tudo-leilao_12052023
+Executar servidor
+npm run dev
 
 
-YOUTUBE:TUDO é VENDIDO NESSE LEILÃO *melhor que receita federal*
-Tudo Leilão
+Executar o ambiente virtual
+.\venv\Scripts\activate
+
+Encerrar ambiente virtual
+deactivate
+
+Executar o servidor rasa
+rasa run --enable-api
+
+===================================================================================================================================
 
 
+YOUTUBE: SETUP RASA CHATBOT ON WHATSAPP
+Innovate Yourself
 
-www.palaciodosleiloes.com.br
+========================================================================================
+
+
+EXIBIR VERSÃO PYTHON
+
+>python --version
+
+LISTAR TODAS VERSÕES PYTHON
+
+>py -0p
+----------------------------------------------------------------------------------------
+
+---------CONFIGURAÇÃO PROJETO RASA CHAT BOT----------------------------------------------
+----------------------------------------------------------------
+
+=======================================================================================================================
+========================================================================================================================
+
 ---------------------------------20-05-23--------------------------07:13-------
 ---------CONFIGURAÇÃO PROJETO RASA CHAT BOT----------------------------------------------
 ----------------------------------------------------------------
@@ -22,6 +45,7 @@ www.palaciodosleiloes.com.br
 
 >pip3 --version
 
+*INTALAÇÃO FORA DA PASTA RASA
 >pip3 install -U pip
 
 >python3 -m venv ./venv
@@ -73,12 +97,6 @@ seu arquivo requirements.txt
 *CRIAR O ARQUIVO REQUIREMENTS.TXT
 Siga estas etapas para criar o arquivo requirements.txt:
 
-Certifique-se de que o seu ambiente virtual esteja ativado.
-
-No terminal ou prompt de comando, navegue até o diretório raiz do seu projeto.
-
-Execute o seguinte comando para gerar a lista das bibliotecas instaladas:
-
 Exemplo:
 >pip freeze > requirements.txt
 
@@ -89,40 +107,53 @@ o comando
 para instalar todas as bibliotecas listadas no arquivo. Certifique-se de estar no mesmo diretório 
 onde o arquivo requirements.txt está localizado ao executar o comando.
 
+INSTALAR AS DEPENDÊNCIAS 
+
 >pip install -r requirements.txt 
 
-ATUALIZAR O PIP
->python.exe -m pip install --upgrade pip
+=========================================================================================================================
 
-START
--------------
 
-TRAINAR O BOT
->rasa train
 
-START SERVER
->rasa run actions
+=================================================================================================
+=================================================================================================
+================================================================================================
 
-INICIAR O SHELL
->rasa shell
+DEPOIS DE CLONAR O PROJETO NO GITHUB
 
-INTERAGIR
->rasa interactive
+pip3 install -U pip
 
-==================================================================================================================
+python3 -m venv ./venv
 
-COMANDOS DEPOIS DE CLONAR ARQUIVO NO GIT HUB
+py -3.8 -m venv venv
 
->python3 -m venv ./venv
+DEPOIS DE EXECUTAR O COMANDO ACIMA EXCECUTAR:
+*CRIA UM AMBIENTE VIRTUAL
+.\venv\Scripts\activate
 
->py -3.9 -m venv venv
+pip install -U flask-cors
 
->.\venv\Scripts\activate
+pip3 install rasa
 
-ESTE COMANDO DEVE SER EXECUTADO DENTRO DO AMBIENTE VIRTUAL
->pip install -r requirements.txt
+rasa run --enable-api
 
-ATUALIZANDO O PIP
->python.exe -m pip install --upgrade pip
+
+=============================================================================================================
+
+INSTALAÇÃO DO SERVIDOR
+
+
+
+
+INSTALAR EXPRESS CORS DOTENV
+
+npm install express cors dotenv
+
+
+INSTALAR AXIOS
+
+npm install axios nodemon
+
+--------------------------------------------------------------------------------------------
 
 
